@@ -1,0 +1,99 @@
+<%= form_for([:admin,  @employeer]) do |form| %>
+<% if @employeer.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@employeer.errors.count, "error") %> prohibited this employeer from being saved:</h2>
+  <ul>
+    <% @employeer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :employeer_first_name,class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :employeer_last_name,class: "form-control"%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :user_name %>
+      <%= form.text_field :username, id: :employeer_user_name,class: "form-control"%>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :employeer_email,class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.text_field :password, id: :employeer_password,class: "form-control"%>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :contact %>
+      <%= form.password_field :contact, id: :employeer_contact,class: "form-control"%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :city %>
+      <%= form.text_field :city, id: :employeer_city,class: "form-control"%>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :state %>
+      <%= form.text_field :state, id: :employeer_state,class: "form-control"%>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :country %>
+      <%= form.text_field :country, id: :employeer_country,class: "form-control"%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :employeer_address,class: "form-control"%>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :profile_pic %><br>
+      <%= form.file_field :profile_pic, id: :employeer_profile_pic%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :about %>
+      <%= form.text_area :about, id: :employeer_about, rows: "10",class: "form-control"%>
+    </div>
+  </div>
+</div>
+<div class="actions">
+  <%= form.submit class: "btn btn-primary" %>
+</div>
+<% end %>

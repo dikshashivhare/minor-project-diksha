@@ -1,0 +1,96 @@
+<div class="card">
+  <div class="card-body">  
+    <%= form_for ([:admin, @company]) do |form| %>
+      <% if @company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+          <ul>
+          <% @company.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :company_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :tagline %>
+        <%= form.text_field :tagline, id: :company_tagline, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :company_description, class: "form-control ckeditor" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email, id: :company_email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :contact %>
+        <%= form.text_field :contact, id: :company_contact, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :website %>
+        <%= form.text_field :website, id: :company_website, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :established_on %>
+        <%= form.text_field :established_on, id: :company_established_on, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :staff_size %>
+        <%= form.text_field :staff_size, id: :company_staff_size, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_field :address, id: :company_address, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :facebook_url %>
+        <%= form.text_field :facebook_url, id: :company_facebook_url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :twitter_url %>
+        <%= form.text_field :twitter_url, id: :company_twitter_url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :linkedin_url %>
+        <%= form.text_field :linkedin_url, id: :company_linkedin_url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :google_plus_url %>
+        <%= form.text_field :google_plus_url, id: :company_google_plus_url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :employeer_id %>
+        <%= form.number_field :employeer_id, id: :company_employeer_id, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(".ckeditor").ckeditor();
+</script>

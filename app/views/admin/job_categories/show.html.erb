@@ -1,0 +1,21 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @job_category.name %>
+</p>
+
+<p>
+  <strong>Icon url:</strong>
+  <%= @job_category.icon_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job_category.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_job_category_path(@job_category) %> |
+<%= link_to 'Back', admin_job_categories_path %>

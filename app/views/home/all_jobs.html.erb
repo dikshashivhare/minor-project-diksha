@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="col-sm-8 col-sm-8">
+		<% @jobs.each do |job| %>
+			<div class="card job-card">
+				<div class="card-body">
+					<h5 class="card-title"><%= job.job_title%></h5>
+    				<p class="card-text"><%= truncate(job.job_description, length: 100) %></p>
+    				<p class="card-text"><i class="fa fa-map-marker"></i>  <%= job.job_location %></p>
+    				<%= link_to job_path(job), class: "btn btn-primary" do %>
+    					<i class="fa fa-eye"></i> View Job
+    				<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-sm-4 col-md-4">
+	</div>
+	<%= paginate @jobs %>
+</div>
+<style type="text/css">
+	.job-card { margin-bottom: 2%; }
+</style>

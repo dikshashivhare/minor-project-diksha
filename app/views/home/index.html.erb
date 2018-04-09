@@ -1,0 +1,71 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="jumbotron text-center" id="work">
+        <h1 class="display-4 ">  Hello, Welcome to Earn While Learn</h1>
+        <p class="lead"> The Earn while learn programme provides opportunities to the students to earn while they are learning through the part-time jobs.</p>
+        <hr class="my-4">
+        <p>Exposes the students to the world of work before actual employment.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/browse-jobs-result" role="button">Browse Jobs</a>
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="jumbotron text-center" id="less">
+        <h1 class="display-4 ">  Hello, Welcome to Earn While Learn</h1>
+        <p class="lead"> The Earn while learn programme provides opportunities to the students to earn while they are learning through the part-time jobs.</p>
+        <hr class="my-4">
+        <p>Exposes the students to the world of work before actual employment.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/browse-jobs-result" role="button">Browse Jobs</a>
+        </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+     <div class="jumbotron text-center" id="foot">
+
+      <h1 class="display-4 ">  Hello, Welcome to Earn While Learn</h1>
+      <p class="lead"> The Earn while learn programme provides opportunities to the students to earn while they are learning through the part-time jobs.</p>
+      <hr class="my-4">
+      <p>Exposes the students to the world of work before actual employment.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/browse-jobs-result" role="button">Browse Jobs</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Left and right controls -->
+<a class="carousel-control-prev" href="#demo" data-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#demo" data-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</a>
+</div>
+<div class="container">
+	<div class="row">	
+		<% @job_categories.each do |jc| %>
+   <div class="col-sm-3">	
+    <div class="card jc-card text-center">
+     <img class="card-img-top" src="<%= jc.icon_url%>" alt="Card image cap" >
+     <div class="card-body">
+      <h5 class="card-title" style="font-size: 15px"><%= jc.name %></h5>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
+</div>
+<hr>
+

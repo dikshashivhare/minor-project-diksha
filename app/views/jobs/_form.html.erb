@@ -1,0 +1,102 @@
+<%= form_for(model: job_seeker, local: true) do |form| %>
+<% if @job_seeker.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@job_seeker.errors.count, "error") %> prohibited this job_seeker from being saved:</h2>
+
+  <ul>
+    <% @job_seeker.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :job_seeker_first_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :job_seeker_last_name,class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :user_name %>
+      <%= form.text_field :username, id: :job_seeker_user_name,class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :job_seeker_email,class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.text_field :password, id: :job_seeker_password,class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :contact %>
+      <%= form.text_field :contact, id: :job_seeker_contact,class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :city %>
+      <%= form.text_field :city, id: :job_seeker_city,class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :state %>
+      <%= form.text_field :state, id: :job_seeker_state,class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :country %>
+      <%= form.text_field :country, id: :job_seeker_country,class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :job_seeker_address,class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :profile_pic %><br>
+      <%= form.file_field :profile_pic, id: :job_seeker_profile_pic %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="form-group">
+      <%= form.label :about %>
+      <%= form.text_area :about, id: :job_seeker_about, rows: "10",class: "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
+

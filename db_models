@@ -1,0 +1,50 @@
+Company
+	Fields
+		name
+		tagline
+		description
+		email
+		contact
+		website
+		established_on
+		staff_size
+		address
+		facebook_url
+		twitter_url
+		linkedin_url
+		google_plus_url
+		employeer_id
+
+	Associations:
+		belongs_to :employeer
+
+
+JobCategory
+	Fields
+		name
+		icon_url
+		description
+
+	Associations:
+		has_many :jobs, dependent: :destroy
+
+
+Job
+	Fields
+		job_title
+		email
+		job_type
+		venue
+		city
+		state
+		country
+		zipcode
+		job_description
+		salary_range
+		employeer_id
+		company_id
+
+	Associations:
+		belongs_to :company, optional: true
+		belongs_to :employeer, optional: true
+		belongs_to :job_category, optional: true

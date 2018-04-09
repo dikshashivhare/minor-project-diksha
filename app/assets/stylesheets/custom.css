@@ -1,0 +1,47 @@
+.job-headings {font-weight: bold;font-size: 15px;}
+.job-values {font-size:14px;}
+#map {height: 400px;width: 100%;}
+.logo-text {margin-left: 1%;}
+#work
+{
+	background-image: url("/assets/slider-bg.jpg");
+    color: white;
+}
+
+.inner-heading {
+    background-image: url("/assets/inner-heading-bg.jpg") ;
+    background-size: cover;
+    padding: 70px 0;
+}
+.container {
+	margin-top: 50px;
+}
+.form-icon{
+	margin-top: -33px;
+	margin-left: 5px;
+	width: 5px;
+}
+.jc-card {margin-bottom: 2%;}
+	.card-img-top{
+		height: 50px;width: 50px;margin-left: 40%;margin-top: 20px
+	}
+	.carousel .item {
+    width: 100%; /*slider width*/
+    max-height: 600px; /*slider height*/
+}
+#less{background-image: url("/assets/banner3.jpg");
+    
+color: white;
+}
+#foot{background-image: url("/assets/banner1.jpg");
+    
+color: white;
+}
+
+#has{background-image: url("/assets/banner3.jpg")}
+
+
+/*Admin Layout CSS*/
+.resource-form {padding:40px;border:1px solid #c4cbd1; width:80%; margin:0 auto;}
+.form-title-head , .resource-form form label{color: #6e6e77;}
+.resource-info {padding:30px;border:1px solid #c4cbd1; width:80%; margin:0 auto;}

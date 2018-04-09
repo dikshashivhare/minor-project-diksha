@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Job Seekers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>User name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Profile pic</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>About</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_seekers.each do |job_seeker| %>
+      <tr>
+        <td><%= job_seeker.first_name %></td>
+        <td><%= job_seeker.last_name %></td>
+        <td><%= job_seeker.username %></td>
+        <td><%= job_seeker.email %></td>
+        <td><%= job_seeker.password %></td>
+        <td><%= job_seeker.profile_pic %></td>
+        <td><%= job_seeker.contact %></td>
+        <td><%= job_seeker.address %></td>
+        <td><%= job_seeker.city %></td>
+        <td><%= job_seeker.state %></td>
+        <td><%= job_seeker.country %></td>
+        <td><%= job_seeker.about %></td>
+        <td><%= link_to 'Show', admin_job_seeker_path(job_seeker) %></td>
+        <td><%= link_to 'Edit', edit_admin_job_seeker_path(job_seeker) %></td>
+        <td><%= link_to 'Destroy', admin_job_seeker_path(job_seeker), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job Seeker', new_admin_job_seeker_path %>

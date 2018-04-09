@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="resource-form">
+    <h1 class="mb-4 form-title-head"><i class="fa fa-pencil"></i> Edit <%= @employeer.full_name %></h1>
+    <%= render 'form', employeer: @employeer %>
+    <%= link_to 'Show', admin_employeer_path(@employeer), class: "btn btn-primary" %> |
+    <%= link_to 'Back', admin_employeers_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+

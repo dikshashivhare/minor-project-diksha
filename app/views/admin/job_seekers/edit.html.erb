@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="resource-form">
+    <h1 class="mb-4 form-title-head"><i class="fa fa-pencil"></i>Editing Job Seeker</h1> 
+    <%= render 'form', job_seeker: @job_seeker %>
+    <%= link_to 'Show', admin_job_seeker_path(@job_seeker),class: "btn btn-primary" %> |
+    <%= link_to 'Back', admin_job_seekers_path,class: "btn btn-primary" %>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-md-7 col-sm-7">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="text-center card-title"><%= @job.job_title %></h4>
+          <h5 class="job-headings">Job Description</h5>
+          <p class="card-text job-values"><%= @job.job_description %></p>
+          <h5 class="job-headings">Job Location</h5>
+          <p class="card-text job-values"><i class="fa fa-map-marker"></i>  <%= @job.job_location %></p>
+          <h5 class="job-headings">Email</h5>
+          <p class="card-text job-values"><i class="fa fa-envelope"></i>  <%= @job.email %></p>
+          <h5 class="job-headings">Salary Range</h5>
+          <p class="card-text job-values"><i class="fa fa-inr"></i>  <%= @job.salary_range %></p>
+          <h5 class="job-headings">Job type</h5>
+          <p class="card-text job-values"><%= @job.job_type %></p>
+          <p>
+          </p>
+         
+          <%= link_to jobs_path, class: "btn btn-primary" do %>
+            <i class="fa fa-arrow-left"></i> Back
+          <% end %>
+
+          <%= link_to new_job_seeker_session_path, class: "btn btn-primary" do %>
+            <i class="fa fa-thumbs-up"></i> Apply Now
+          <% end %>          
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+<script>
+  function initMap() {
+    var job_location = {lat: <%= @job.latitude %>, lng: <%= @job.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: job_location
+    });
+    var marker = new google.maps.Marker({
+      position: job_location,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfsqCxbcgsqYXMucH08nfifdtXK-8lPIQ&callback=initMap">
+</script>
+
+
+

@@ -1,0 +1,44 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="text-center">
+    <h1>Employeers</h1>
+  </div>
+  <table class="table table-bordered" id="employeers">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employeers.each do |employeer| %>
+      <tr>
+        <td><%= employeer.full_name %></td>
+        <td><%= employeer.username %></td>
+        <td><%= employeer.email %></td>
+        <td><%= employeer.contact %></td>
+        <td><%= employeer.full_address %></td>
+        <td>
+          <%= link_to 'Show', admin_employeer_path(employeer) %>
+          <%= link_to 'Edit', edit_admin_employeer_path(employeer) %>
+          <%= link_to 'Destroy', admin_employeer_path(employeer), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Employeer', new_admin_employeer_path, class: "btn btn-primary"  %>
+</div>
+<br>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#employeers').DataTable();
+  })
+</script>

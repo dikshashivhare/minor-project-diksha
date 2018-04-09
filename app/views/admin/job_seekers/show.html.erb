@@ -1,0 +1,20 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="resource-info">
+    <div class="row">
+      <div class="col-sm-4">
+        <%=image_tag @job_seeker.profile_pic_url ,class: "img-fluid" %>
+      </div>
+      <div class="col-sm-8">
+       <h5><strong>Name:</strong> <%= @job_seeker.full_name %></h5>
+       <h5><strong>Username: </strong><%= @job_seeker.username %></h5>
+       <h5><strong>Email: </strong><%= @job_seeker.email %></h5>
+       <h5><strong>Contact: </strong><%= @job_seeker.contact %></h5>
+       <h5><strong>Address: </strong><%= @job_seeker.full_address %></h5>
+       <h5><strong>About: </strong><%= @job_seeker.about %></h5>
+     </div>
+   </div>
+   <%= link_to 'Edit', edit_admin_job_seeker_path(@job_seeker), class: "btn btn-primary" %>
+   <%= link_to 'Back', admin_job_seekers_path, class: "btn btn-primary" %>
+ </div>
+</div>

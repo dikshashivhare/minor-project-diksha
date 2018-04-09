@@ -1,0 +1,11 @@
+<div class="dropdown" style="margin-right:20px;">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+      Accounts
+    </button>
+    <div class="dropdown-menu">
+      <%= link_to "Register an employeer", new_employeer_session_path , class: "dropdown-item" %>
+   
+      <%= link_to "Register an jobseeker", new_job_seeker_session_path , class: "dropdown-item" %>
+   
+    </div>
+  </div>

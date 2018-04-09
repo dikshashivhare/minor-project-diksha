@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_for([:admin, job_category]) do |form| %>
+      <% if job_category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(job_category.errors.count, "error") %> prohibited this job_category from being saved:</h2>
+
+          <ul>
+          <% job_category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :job_category_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :icon_url %>
+        <%= form.text_field :icon_url, id: :job_category_icon_url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :job_category_description, class: "form-control", rows: "5" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+ </div>
+</div>

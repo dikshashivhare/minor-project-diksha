@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408183855) do
+ActiveRecord::Schema.define(version: 20180421105254) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20180408183855) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "cover_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -83,6 +91,16 @@ ActiveRecord::Schema.define(version: 20180408183855) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "job_seeker_jobs", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "job_seeker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "job_application_status"
+    t.index ["job_id"], name: "index_job_seeker_jobs_on_job_id"
+    t.index ["job_seeker_id"], name: "index_job_seeker_jobs_on_job_seeker_id"
+  end
+
   create_table "job_seekers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -129,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180408183855) do
     t.integer "job_category_id"
     t.float "latitude"
     t.float "longitude"
+    t.integer "total_position"
   end
 
 end

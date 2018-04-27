@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <style type="text/css">
+    .mail-body {background-color: #8e8ebe;padding:5%;}
+  </style>
+  <body>
+    <div class="mail-body" style="
+    background-color: #163aca;
+    padding: 5%;
+    color: #fff;
+    width: 70%;
+    margin: 0 auto;">
+      <h1 style="font-size: 35px; text-align: center;margin-bottom: 30px;margin-top:30px;">Earn While Learn</h1>
+      <h1>Hi, <%= @job_seeker.name %></h1>
+      <p>
+        Your application has been submitted successfully for <%= @job.job_title %>. We have send your information to the employeer of this job. They will review your information and get back to you shortly. Thanks for choosing Earn While Learn.
+      </p>
+      <p>Thanks.</p>
+      <p>Earn While Learn</p>
+    </div>
+  </body>
+</html>

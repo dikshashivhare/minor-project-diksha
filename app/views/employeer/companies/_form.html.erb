@@ -1,0 +1,101 @@
+<div class="card">
+  <div class="card-header">
+    <h3>New Company</h3>
+  </div>
+  <div class="card-body">  
+    <%= form_for ([:employeer, @company]) do |form| %>
+      <% if @company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+          <ul>
+          <% @company.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.hidden_field :employeer_id, id: :company_employeer_id, value: current_employeer.id, class: "form-control" %>
+
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, id: :company_name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :tagline %>
+            <%= form.text_field :tagline, id: :company_tagline, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :email %>
+            <%= form.text_field :email, id: :company_email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :contact %>
+            <%= form.text_field :contact, id: :company_contact, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :website %>
+            <%= form.text_field :website, id: :company_website, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :established_on %>
+            <%= form.text_field :established_on, id: :company_established_on, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :staff_size %>
+            <%= form.text_field :staff_size, id: :company_staff_size, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :address %>
+            <%= form.text_field :address, id: :company_address, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+        
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_area :description, id: :company_description, class: "form-control ckeditor" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(".ckeditor").ckeditor();
+</script>

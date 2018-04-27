@@ -1,0 +1,24 @@
+<div class="inner-heading">
+  <div class="container">
+    <h2 class="text-center card-title" style="color: white">Blog</h2>
+  </div>
+</div>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <% @articles.each do |article| %>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">     
+        <%= image_tag article.cover_image, :class => 'img-fuild',:style => "height:200px" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+         <%= link_to article, class: "btn btn-primary" do %>
+            <i class="fa fa-eye"></i>Show
+            <%end%>
+        </div>
+      </div>      
+    </div>
+    <% end %>
+  </div>
+</div>

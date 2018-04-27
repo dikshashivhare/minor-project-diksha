@@ -45,3 +45,11 @@ color: white;
 .resource-form {padding:40px;border:1px solid #c4cbd1; width:80%; margin:0 auto;}
 .form-title-head , .resource-form form label{color: #6e6e77;}
 .resource-info {padding:30px;border:1px solid #c4cbd1; width:80%; margin:0 auto;}
+.vl {
+    border-left: 6px solid grey;
+    height: 305px;
+    position: absolute;
+    left: 50%;
+    margin-right: 100px;
+    top: 0;
+}

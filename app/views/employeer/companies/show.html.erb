@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-md-7 col-sm-7">
+      <div class="card">
+        <div class="card-body">
+          <p id="notice"><%= notice %></p>
+          <h4 class="text-center card-title"><%= @company.name %></h4>
+          <h5 class="job-headings">Company Description</h5>
+          <p class="card-text job-values"><%= @company.try(:description).try(:html_safe) %></p>
+  
+          <h5 class="job-headings">Company Tagline</h5>
+          <p class="card-text job-values"><i class="fa fa-quote-left"></i><%= @company.tagline %></p>
+
+          <h5 class="job-headings">Email</h5>
+          <p class="card-text job-values"><i class="fa fa-envelope"></i>  <%= @company.email %></p>
+
+           <h5 class="job-headings">Contact</h5>
+          <p class="card-text job-values"><i class="fa fa-phone"></i>  <%= @company.contact %></p>
+
+           <h5 class="job-headings">Website</h5>
+          <p class="card-text job-values"><i class="fa fa-globe"></i>  <%= @company.website %></p>
+          <p>
+            <strong>Established on:</strong>
+           <p class="card-text job-values"><i class="fa fa-star" ></i><%= @company. established_on %></p>
+          </p>
+
+          <h5 class="job-headings">Staff Size</h5>
+          <p class="card-text job-values"><%= @company. staff_size %></p>
+           <h5 class="job-headings">Address</h5>
+          <p class="card-text job-values"><i class="fa fa-address-book"></i>  <%= @company.address %></p>
+         
+         
+            <h5 class="job-headings">Employeer</h5>
+          <p class="card-text job-values"></i>  <%= @company.employeer_id %></p>
+         
+        </div>
+      </div>
+<%= link_to 'Edit', edit_employeer_company_path(@company) %> |
+<%= link_to 'Back', employeer_companies_path %>
+    </div>
+  </div>
+</div>

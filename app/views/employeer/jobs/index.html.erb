@@ -1,0 +1,37 @@
+<div class="container"
+  <p id="notice"><%= notice %></p>
+<div class="text-center">
+  <h1>Jobs</h1>
+</div>
+
+  <table class="table table-bordered" id="jobs">
+    <thead style="background-color: #f47d41 ">
+      <tr>
+        <th>Job title</th>
+        <th>Email</th>
+        <th>Job type</th>
+        <th>Salary range</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody >
+      <% @jobs.each do |job| %>
+      <tr >
+        <td><%= job.job_title %></td>
+        <td><%= job.email %></td>
+        <td><%= job.job_type %></td>
+        <td><%= job.salary_range %></td>
+        <td>  
+          <%= link_to employeer_job_path(job), class: "btn btn-danger" do %>
+            <i class="fa fa-eye"></i>View
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to new_employeer_job_path, class: "btn btn-primary" do %>
+    <i class="fa fa-plus"></i> Add New Job
+  <% end %>
+</div>

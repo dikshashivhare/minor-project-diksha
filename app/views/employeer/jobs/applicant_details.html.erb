@@ -1,0 +1,60 @@
+<div class="container col-md-8 offset-2 applicant-detail-card">
+  <% if flash[:notice].present? %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong><%= flash[:notice] %></strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title text-center">Applicant Details</h3>
+    </div>
+    <div class="card-body">
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <%= image_tag @job_seeker.profile_pic, :class => 'img-fluid img-thumbnail' %>
+          </div>
+          <div class="col-md-8 p-details">
+            <h6><i class="fa fa-user"></i><span><%= @job_seeker.name %></span></h6>
+            <h6><i class="fa fa-envelope"></i><span><%= @job_seeker.email %></span></h6>
+            <h6><i class="fa fa-phone"></i><span><%= @job_seeker.contact %></span></h6>      
+          </div>
+        </div>
+        <hr>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <h5 class="card-title mt-2">About <%= @job_seeker.name %></h5>
+            <p style="text-align: justify;">I have tried to search online for an answer to this question, but to no avail. I'm following Michael Hartl's Ruby on Rails tutorial, chapter 5, and I went off on my own and made a new view page that uses the method "image_tag." However when I look at the view on localhost:3000 the image is not centered. How can I center the image using "image_tag"?</p>
+          </div>
+        </div>
+        <div class="row">
+          <%= link_to "Download Attachments", @job_seeker.resume_url, class: "btn btn-warning" %>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <% if @job_seeker_job.job_application_status.present? %>
+              <% if @job_seeker_job.job_application_status == "Accepted" %>
+                <%= link_to @job_seeker_job.job_application_status, "", class: "btn btn-success disabled" %>
+              <% else %>
+                <%= link_to @job_seeker_job.job_application_status, "", class: "btn btn-danger disabled" %>
+              <% end %>
+            <% else %>
+              <%= link_to "Accept", application_status_employeer_jobs_path(job_seeker_job_id: @job_seeker_job, status: "Accepted"), class: "btn btn-success", method: :patch %>
+              <%= link_to "Denied", application_status_employeer_jobs_path(job_seeker_job_id: @job_seeker_job, status: "Denied"), class: "btn btn-danger", method: :patch %>
+            <% end %>
+          </div>
+        </div>
+    </div> 
+  </div>
+</div>     
+
+<style type="text/css">
+  .p-details span {margin-left: 20px;}
+  .p-details .fa {color:#2573c2;}
+  .applicant-detail-card .card-header {background-color: rgb(246, 133, 58);}
+  .applicant-detail-card .card {border-color: rgb(246, 133, 58);}
+  .applicant-detail-card .card-header .card-title {color:#fff;font-weight: bold;}
+</style>

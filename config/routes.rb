@@ -1,6 +1,6 @@
-
 Rails.application.routes.draw do
 
+  resources :articles
  root to: "home#index" 
  resources :jobs, only: [:index, :show]
  
@@ -33,22 +33,38 @@ Rails.application.routes.draw do
  get '/browse-jobs-result' => "home#all_jobs"
  get'home/about'
  get'home/contact_us'
-
+ get 'auths/auths'
   namespace :admin do 
     resources :jobs
     resources :job_categories
     resources :job_seekers
     resources :employeers
     resources :companies
+    resources :articles
   end
 
   namespace :employeer do 
-    resources :jobs
+    get '/dashboard' => "dashboards#index"
+    resources :jobs do 
+      collection do 
+        get :job_applicants
+        get :applicant_details
+        patch :application_status
+      end
+    end
     resources :companies
   end
 
   get '/apply-for-job' => "apply_job#register"
   post 'apply_job/create_job_registration'
 
+  devise_scope :job_seeker do
+  authenticated :job_seeker do
+    root 'jobs#index', as: :authenticated_root
+  end
 
+  unauthenticated do
+    root 'home#index', as: :unauthenticated_root
+  end
+end
 end

@@ -41,7 +41,6 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
@@ -52,22 +51,19 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.default_url_options = {  :host => 'localhost:3000',
-    :only_path => false }
-
-
-
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.perform_deliveries = true
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = 
-    {
-      :user_name => 'dikshashivhare75@gmail.com',
-      :password => '$$$diksha$$$',
-      :domain => 'gmail.com',
-      :address => 'smtp.gmail.com',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-    }
-  end
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'dikshashivhare75@gmail.com',
+    :password => '$$$diksha$$$',
+    :domain => 'gmail.com',
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  
+  config.action_mailer.delivery_method = :letter_opener
+config.action_mailer.perform_deliveries = true
+end

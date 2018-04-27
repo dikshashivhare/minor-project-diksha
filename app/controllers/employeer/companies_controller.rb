@@ -1,11 +1,11 @@
 class Employeer::CompaniesController < ApplicationController
   before_action :authenticate_employeer!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
+  layout 'employeer'
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = current_employeer.companies
   end
 
   # GET /companies/1

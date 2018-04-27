@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h1 class="display-6">Earn While Learn</h1>
+  <p class="lead">Create jobs at Earn While Learn and hire well qualified people.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <%= link_to employeer_companies_path, class: "btn btn-primary btn-lg mb-4" do %>
+      <i class="fa fa-arrow-left"></i> Back
+    <% end %>
+  </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-md-10 offset-md-1 offset-sm-1">
+      <%= render 'form', company: @company %>
+    </div>
+  </div>
+</div>

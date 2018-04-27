@@ -1,10 +1,11 @@
 class Employeer::JobsController < ApplicationController
   before_action :authenticate_employeer!, only: [:create, :new, :edit, :update, :destroy]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  layout 'employeer'
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = current_employeer.jobs
   end
 
   # GET /jobs/1
@@ -14,7 +15,7 @@ class Employeer::JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new 
   end
 
   # GET /jobs/1/edit
@@ -60,6 +61,36 @@ class Employeer::JobsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def job_applicants
+    @jobs = current_employeer.jobs
+    @applicants = @jobs.map {|j| j.job_seeker_jobs }.flatten
+  end
+
+  def applicant_details
+    @job_seeker = JobSeeker.find(params[:applicant_id])
+    @job_seeker_job = JobSeekerJob.find(params[:job_seeker_job])
+  end
+
+  def application_status
+    @job_seeker_job = JobSeekerJob.find(params[:job_seeker_job_id])
+    if @job_seeker_job.update(job_application_status: params[:status])
+      if params[:status] == "Accepted"
+        @job_seeker_job.job.update(total_position: @job_seeker_job.job.total_position - 1)
+        puts "Accepted"
+      else
+        @job_seeker_job.job.update(total_position: @job_seeker_job.job.total_position)
+        puts "denied"
+      end
+      respond_to do |format|
+        if @job_seeker_job.job_application_status == "Accepted"
+          NotificationMailer.job_acceptance_notification_to_job_seeker(@job_seeker_job).deliver_now
+        end
+        format.html { redirect_to applicant_details_employeer_jobs_path(applicant_id: @job_seeker_job.job_seeker.id, job_seeker_job: @job_seeker_job.id), notice: "Application status has been updated successfully." }
+      end
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

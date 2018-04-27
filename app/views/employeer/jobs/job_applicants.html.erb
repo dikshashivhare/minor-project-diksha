@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card-body">
+     <div class="card-header">
+      <h3 class="card-title text-center">Applied Jobseeker</h3>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Jobseeker</th>
+          <th>Job</th>
+          <th>Applied On</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @applicants.each do |applicant| %>
+        <tr>
+          <td><%= applicant.job_seeker.name %></td>
+          <td><%= applicant.job.job_title %></td>
+          <td><%= applicant.created_at.strftime("%d %b %Y %H:%M %p") %></td>
+          <td>
+            <%= link_to "View Applicant Profile", applicant_details_employeer_jobs_path(applicant_id: applicant.job_seeker.id, job_seeker_job: applicant.id), class: "btn btn-primary" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>

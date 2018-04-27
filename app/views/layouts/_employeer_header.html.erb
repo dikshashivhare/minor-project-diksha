@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light  " >
+  <%=image_tag"download.png" ,style: "width:5%"%>
+
+
+  <a class="navbar-brand logo-text" href="#">EWL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "My Jobs", employeer_jobs_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "My Companies",employeer_companies_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Job Applications",job_applicants_employeer_jobs_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About",home_about_path, class: "nav-link" %>
+      </li>
+      
+      
+    </ul>
+
+    
+
+    <ul class="navbar-nav my-lg-0" >
+
+      <% if job_seeker_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_job_seeker_session_path, method: :delete,class: "btn btn-secondary") %>        
+      </li>
+      <% elsif employeer_signed_in?
+      %>
+      <li>
+        <%= link_to'Logout', destroy_employeer_session_path, method: :delete,class: "btn btn-secondary",:style =>"margin-right:10px"; %>        
+      </li>
+      <% else %>
+      <li>
+        <li><%= link_to "login", job_seeker_session_path,class: "btn btn-secondary" ,:style =>"margin-right:10px" %></li> 
+      </li>
+      </li>
+      <% end %>
+      <% if employeer_signed_in? %>
+        <li><%= link_to "Post a Job", new_employeer_job_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
+      <% else %>
+        <li><%= link_to "Post a Job", new_employeer_session_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

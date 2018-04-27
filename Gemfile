@@ -70,3 +70,5 @@ gem 'kaminari'
 gem "cocoon"
 gem 'ckeditor'
 gem 'carrierwave'
+gem 'ransack'
+gem "letter_opener"

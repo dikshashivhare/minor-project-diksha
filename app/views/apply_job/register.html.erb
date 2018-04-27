@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
   <div class="resource-form">
     <h1 class="mb-4 form-title-head">Apply For Job</h1>
     <%= form_for @job_seeker, url: :apply_job_create_job_registration, method: :post do |form| %>
@@ -13,9 +13,10 @@
           </ul>
         </div>
       <% end %>
-      <div class="row">
+      <%= form.hidden_field :job_id, value: @job.id %>
+      <div class="row"  >
         <div class="col-sm">
-          <div class="form-group">
+          <div class="form-group" >
             <%= form.label :first_name %>
             <%= form.text_field :first_name, id: :job_seeker_first_name, class: "form-control" %>
           </div>
@@ -45,7 +46,7 @@
         <div class="col-sm">
           <div class="form-group">
             <%= form.label :password %>
-            <%= form.text_field :password, id: :job_seeker_password,class: "form-control" %>
+            <%= form.password_field :password, id: :job_seeker_password,class: "form-control" %>
           </div>
         </div>
         <div class="col-sm">
@@ -98,6 +99,14 @@
           </div>
         </div>
       </div>
+       <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <%= form.label :resume %><br>
+            <%= form.file_field  :resume, id: :job_seeker_resume %>
+          </div>
+        </div>
+      </div>
       <div class="form-group">
         <%= form.submit "Submit", class: "btn btn-primary" %>
       </div>
@@ -105,5 +114,3 @@
     <%= link_to 'Back', job_path(@job), class: "btn btn-primary" %>
   </div>
 </div>
-
-

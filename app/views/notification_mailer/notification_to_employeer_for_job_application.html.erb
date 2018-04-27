@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <style type="text/css">
+    .mail-body {background-color: #8e8ebe;padding:5%;}
+  </style>
+  <body>
+    <div class="mail-body" style="
+    background-color: #163aca;
+    padding: 5%;
+    color: #fff;
+    width: 70%;
+    margin: 0 auto;">
+      <h1 style="font-size: 35px; text-align: center;margin-bottom: 30px;margin-top:30px;">Earn While Learn</h1>
+      <h1 style="text-align: center;">Hi, <%= @employeer.full_name %></h1>
+      <p>
+        <%= @job_seeker.name %> has applied for job <%= @job.job_title %> on <%= "#{DateTime.now.strftime("%b %d %Y %H:%M %p")}" %>. He has uploaded an attachment with email. Please have a look on it. And send your response to <%= @job_seeker.name %>.
+      </p>
+      <p>Thanks.</p>
+      <p>Earn While Learn</p>
+    </div>
+  </body>
+</html>

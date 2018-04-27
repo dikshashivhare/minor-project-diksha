@@ -25,6 +25,6 @@ class Employeers::SessionsController < Devise::SessionsController
      devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name,:last_name,:user_name])
  end
   def after_sign_in_path_for(resource)
-    new_job_path
+    new_employeer_job_path
   end
 end

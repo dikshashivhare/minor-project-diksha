@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="col-md-12"></div>
+      <div class="row">
+      <div class="col-md-6">
+        <%=image_tag"employeer.jpeg",:style => "margin-left:130px"%>
+        <div class="text-center">
+          <%= link_to new_employeer_session_path, class: "btn btn-primary" do %>
+            <i class="fa fa-sign-in"></i> Employeer signin
+          <% end %>
+        </div>
+      </div>
+      <div class="vl"></div>
+
+      <div class="col-md-6">
+        <%=image_tag"e.jpg",:class=>"img-fluid",:style => "width: 35%;height:70%;margin-left:150px;margin-top:35px;"%>
+        <div class="text-center">
+          <%= link_to new_job_seeker_session_path, class: "btn btn-primary" do %>
+            <i class="fa fa-sign-in"></i> Jobseeker signin
+          <% end %>
+        </div>
+
+      </div>
+
+      <div class="col-md-3"></div>
+    </div>
+
+    </div>
+    
+  </div>
+  
+</div>

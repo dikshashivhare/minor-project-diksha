@@ -21,14 +21,12 @@
     <li class="nav-item">
       <%= link_to "About",home_about_path, class: "nav-link" %>
     </li>
-    
-    
+
+     <li class="nav-item">
+      <%= link_to "Blog",articles_path, class: "nav-link" %>
+    </li>
   </ul>
-
-  
-
   <ul class="navbar-nav my-lg-0" >
-
     <% if job_seeker_signed_in? %>
     <li>
       <%= link_to('Logout', destroy_job_seeker_session_path, method: :delete,class: "btn btn-secondary") %>        
@@ -40,12 +38,12 @@
     </li>
     <% else %>
     <li>
-      <li><%= link_to "login", job_seeker_session_path,class: "btn btn-secondary" ,:style =>"margin-right:10px" %></li> 
+      <li><%= link_to "login", auths_auths_path,class: "btn btn-secondary" ,:style =>"margin-right:10px" %></li> 
     </li>
     </li>
     <% end %>
     <% if employeer_signed_in? %>
-      <li><%= link_to "Post a Job", new_job_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
+      <li><%= link_to "Post a Job", new_employeer_job_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
     <% else %>
       <li><%= link_to "Post a Job", new_employeer_session_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
     <% end %>

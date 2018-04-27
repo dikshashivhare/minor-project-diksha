@@ -6,11 +6,12 @@ class Employeer < ApplicationRecord
   paginates_per 5
 
   has_many :companies, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
   mount_uploader :profile_pic, ProfilePicUploader
 
   def full_name
-   	"#{self.first_name.capitalize} #{self.last_name.capitalize}"	
+   	"#{self.first_name} #{self.last_name}"	
   end
 
   def full_address
